@@ -58,11 +58,6 @@ fetch(`https://ajascertdec01c.sub0.workers.dev/?m=${m}`)
 
 // ---------- Certificate Generation ----------
 
-// img.src = "cert_0.0.1d.png";
-// img.onload = () => {
-//   generateCert(decTxtToCertJSON(decTxt));
-// };
-
 function calculateTitleHeight() {
   const canvas = document.getElementById("canvas");
   const canvasHeight = canvas.offsetHeight;
@@ -125,3 +120,12 @@ function generateCert(paramDict) {
 }
 
 // ----------
+
+// ---------- Download Certificate ----------
+
+document.getElementById("download").addEventListener("click", () => {
+  const a = document.createElement("a");
+  a.href = canvas.toDataURL();
+  a.download = "certificate.png";
+  a.click();
+});
